@@ -1,0 +1,46 @@
+\d 
+
+CREATE TABLE PROJETO(
+codigo INTEGER PRIMARY KEY,
+nome VARCHAR(30));
+
+CREATE TABLE EMPRESA(
+codigo INTEGER PRIMARY KEY,
+nome VARCHAR(60),
+rua VARCHAR(20),
+cidade VARCHAR(20),
+estado CHAR(2));
+
+CREATE TABLE EMPREGADO(
+codigo INTEGER PRIMARY KEY,
+codigo_empresa INTEGER,
+codigo_gerente INTEGER,
+nome VARCHAR(60),
+rua VARCHAR(20),
+cidade VARCHAR(20),
+estado CHAR(2),
+sexo CHAR(1),
+salario REAL,
+FOREIGN KEY (codigo_empresa) REFERENCES EMPRESA(codigo),
+FOREIGN KEY (codigo_gerente) REFERENCES EMPREGADO(codigo));
+
+CREATE TABLE TRABALHA_EM(
+codigo_empregado INTEGER,
+codigo_projeto INTEGER,
+horas INTEGER,
+FOREIGN KEY (codigo_empregado) REFERENCES EMPREGADO(codigo),
+FOREIGN KEY (codigo_projeto) REFERENCES PROJETO(codigo));
+
+INSERT INTO PROJETO (codigo, nome) VALUES (01, 'Projeto01');
+INSERT INTO PROJETO (codigo, nome) VALUES (02, 'Projeto02');
+
+INSERT INTO EMPRESA (codigo, nome, rua, cidade, estado) VALUES (01,'infoalto', 'rua a', 'cidade a', 'MG');
+INSERT INTO EMPRESA (codigo, nome, rua, cidade, estado) VALUES (01,'infoalto', 'rua a', 'cidade a', 'MG');
+
+INSERT INTO TRABALHA_EM (codigo_empregado, codigo_projeto, horas) VALUES (01, 01, 30);
+INSERT INTO TRABALHA_EM (codigo_empregado, codigo_projeto, horas) VALUES (02, 02, '14:30');
+
+SELECT 
+
+INSERT INTO EMPREGADO (codigo, codigo_empresa, codigo_gerente, nome, rua, cidade, estado) VALUES (01, 01, 01, 'JOSE SILVA', 'RUA A', 'AAA', 'SP');
+INSERT INTO EMPREGADO (codigo, codigo_empresa, codigo_gerente, nome, rua, cidade, estado) VALUES (02, 02, 02, 'JOSIANE SILVA', 'RUA B', 'BBB', 'MG');

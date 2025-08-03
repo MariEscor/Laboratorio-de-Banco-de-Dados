@@ -1,0 +1,13 @@
+CREATE VIEW qtd_produto(produto, quantidade) AS 
+CREATE OR REPLACE VIEW qtd_produto(produto, quantidade) AS  //para alterar o conteúdo da view
+
+SELECT pr.nomeproduto, SUM(quantidade)
+FROM produto pr 
+JOIN itempedido i ON pr.codigo = i.codigoproduto
+JOIN pedido p ON i.numeropedido = p.numpedido
+WHERE  datapedido BETEWEEN '01/02/2025' AND '28/02/2025'
+GROUP BY pr.produto
+ORDER BY pr.nomeproduto ASC;
+
+SELECT * FROM qtd_produto;
+
